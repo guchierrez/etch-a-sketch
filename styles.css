@@ -1,0 +1,264 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Tilt+Warp&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+:root {
+  /*FONT FAMILY VARIABLES*/
+  --ff-title: "Tilt Warp", sans-serif;
+  --ff-general: "Source Sans Pro", sans-serif;
+  /*FONT SIZE VARIABLES*/
+  --fs-title: 5rem;
+  --fs-general: 1.6rem;
+}
+
+/*========================================
+============TABLE OF CONTENTS=============
+==========================================
+============1. TYPOGRAPHY=================
+============2. STYLING====================
+============3. GRID LAYOUT================
+========================================*/
+
+/*========================================
+============1. TYPOGRAPHY=================
+========================================*/
+
+body {
+  font-family: var(--ff-general);
+  font-size: var(--fs-general);
+}
+
+/*========================================
+============2. STYLING====================
+========================================*/
+
+body {
+  min-height: 100vh;
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(255, 94, 247, 1) 17.8%,
+    rgba(2, 245, 255, 1) 100.2%
+  );
+  position: relative;
+}
+
+header h1 {
+  font-family: var(--ff-title);
+  font-size: var(--fs-title);
+  text-align: center;
+  padding: 2% 0% 5%;
+  color: white;
+  letter-spacing: 3px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.settings-panel {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  text-align: center;
+  gap: 2em;
+}
+
+.settings-panel button {
+  font-family: var(--ff-general);
+  font-size: var(--fs-general);
+  background: none;
+  border: none;
+  outline: solid 1px white;
+  color: white;
+  padding: 4%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.settings-panel button:hover {
+  outline: solid 1px black;
+  color: black;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.settings-panel button:active {
+  transform: scale(1.1);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.settings-panel button.selected {
+  outline: solid 1px black;
+  color: black;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+body footer a img {
+  width: 50px;
+  padding: 0% 30%;
+}
+
+/*========================================
+============3. GRID LAYOUT================
+========================================*/
+.sketchpad {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 512px;
+  max-height: 512px;
+}
+
+.s8x8 {
+  background-color: white;
+  height: 8px;
+  width: 8px;
+}
+
+.s16x16 {
+  background-color: white;
+  height: 16px;
+  width: 16px;
+}
+
+.s32x32 {
+  background-color: white;
+  height: 32px;
+  width: 32px;
+}
+
+/*==============================
+========IPAD MEDIA QUERY========
+==============================*/
+
+@media only screen and (min-width: 500px) and (max-width: 900px) {
+  :root {
+    /*FONT FAMILY VARIABLES*/
+    --ff-title: "Montserrat", sans-serif;
+    --ff-general: "Source Sans Pro", sans-serif;
+    /*FONT SIZE VARIABLES*/
+    --fs-title: 5rem;
+    --fs-general: 2rem;
+  }
+
+  header h1 {
+    padding: 5% 0%;
+  }
+
+  main {
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+
+  .settings-panel {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5em;
+    padding: 0% 5%;
+    margin-bottom: 15%;
+  }
+
+  .settings-panel button {
+    border-radius: 1px;
+    padding: 1em;
+    min-width: 400px;
+  }
+
+  .sketchpad {
+    margin: auto;
+  }
+}
+
+/*==============================
+=======PHONE MEDIA QUERY========
+==============================*/
+
+@media only screen and (max-width: 500px) {
+  :root {
+    /*FONT FAMILY VARIABLES*/
+    --ff-title: "Montserrat", sans-serif;
+    --ff-general: "Source Sans Pro", sans-serif;
+    /*FONT SIZE VARIABLES*/
+    --fs-title: 4rem;
+    --fs-general: 1.4rem;
+  }
+
+  header h1 {
+    padding: 5% 0%;
+  }
+
+  main {
+    flex-direction: column-reverse;
+    justify-content: center;
+    gap: 2em;
+  }
+
+  .settings-panel {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+    padding: 0% 5%;
+    margin-bottom: 15%;
+  }
+
+  .settings-panel button {
+    border-radius: 1px;
+    padding: 1em;
+    min-width: 300px;
+  }
+
+  footer a img {
+    width: 100px;
+    padding: 0% 30%;
+  }
+
+  /*========================================
+============3. GRID LAYOUT================
+========================================*/
+
+  .sketchpad {
+    margin: auto;
+    max-width: 320px;
+    max-height: 320px;
+  }
+
+  .s8x8 {
+    background-color: white;
+    height: 5px;
+    width: 5px;
+  }
+
+  .s16x16 {
+    background-color: white;
+    height: 10px;
+    width: 10px;
+  }
+
+  .s32x32 {
+    background-color: white;
+    height: 20px;
+    width: 20px;
+  }
+}
