@@ -127,16 +127,19 @@ resetButton.addEventListener("click", function () {
 =======PENCIL, RAINBOW AND ERASER=========
 ========================================*/
 
+let mouseDown = false;
+document.body.onmousedown = () => (mouseDown = true);
+document.body.onmouseup = () => (mouseDown = false);
+
 pencilButton.addEventListener("click", function () {
-  const blocks = document.querySelectorAll(".block");
-  for (i = 0; i < blocks.length; i++) {
-    const blocks2 = document.getElementById(`block-${i}`);
-    blocks2.addEventListener("mouseover", function () {
-      for (i = 0; i < blocks.length; i++) {
-        blocks2.style.backgroundColor = "black";
-      }
-    });
-  }
+  sketchpad.addEventListener("mousedown", (e) => {
+    if (e.type === "mouseover" && !mouseDown) return;
+    e.target.style.backgroundColor = "black";
+  });
+  sketchpad.addEventListener("mouseover", (e) => {
+    if (e.type === "mouseover" && !mouseDown) return;
+    e.target.style.backgroundColor = "black";
+  });
 });
 
 const colors = [
@@ -150,26 +153,25 @@ const colors = [
 ];
 
 rainbowButton.addEventListener("click", function () {
-  const blocks = document.querySelectorAll(".block");
-  for (i = 0; i < blocks.length; i++) {
-    const blocks2 = document.getElementById(`block-${i}`);
-    blocks2.addEventListener("mouseover", function () {
-      for (i = 0; i < blocks.length; i++) {
-        let randomColors = colors[(colors.length * Math.random()) | 0];
-        blocks2.style.backgroundColor = randomColors;
-      }
-    });
-  }
+  sketchpad.addEventListener("mousedown", (e) => {
+    if (e.type === "mouseover" && !mouseDown) return;
+    let randomColors = colors[(colors.length * Math.random()) | 0];
+    e.target.style.backgroundColor = randomColors;
+  });
+  sketchpad.addEventListener("mouseover", (e) => {
+    if (e.type === "mouseover" && !mouseDown) return;
+    let randomColors = colors[(colors.length * Math.random()) | 0];
+    e.target.style.backgroundColor = randomColors;
+  });
 });
 
 eraserButton.addEventListener("click", function () {
-  const blocks = document.querySelectorAll(".block");
-  for (i = 0; i < blocks.length; i++) {
-    const blocks2 = document.getElementById(`block-${i}`);
-    blocks2.addEventListener("mouseover", function () {
-      for (i = 0; i < blocks.length; i++) {
-        blocks2.style.backgroundColor = "white";
-      }
-    });
-  }
+  sketchpad.addEventListener("mousedown", (e) => {
+    if (e.type === "mouseover" && !mouseDown) return;
+    e.target.style.backgroundColor = "white";
+  });
+  sketchpad.addEventListener("mouseover", (e) => {
+    if (e.type === "mouseover" && !mouseDown) return;
+    e.target.style.backgroundColor = "white";
+  });
 });
