@@ -51,17 +51,17 @@ function unselectButtons(index) {
 }
 
 pencilButton.addEventListener("click", function () {
-  unselectButtons(1);
+  unselectButtons(2);
   pencilButton.classList.toggle("selected");
 });
 
 rainbowButton.addEventListener("click", function () {
-  unselectButtons(1);
+  unselectButtons(2);
   rainbowButton.classList.toggle("selected");
 });
 
 eraserButton.addEventListener("click", function () {
-  unselectButtons(1);
+  unselectButtons(2);
   eraserButton.classList.toggle("selected");
 });
 
@@ -69,6 +69,8 @@ eraserButton.addEventListener("click", function () {
 =========3. GRID CONFIGURATION============
 ========GRID BUTTON FUNCTIONALITY=========
 ========================================*/
+
+const createButton = document.getElementById("create");
 
 function addSketchpadStyle() {
   document.getElementById("main").style.gap = "4em";
@@ -86,9 +88,13 @@ function removeGrid() {
 let clicked1 = false;
 let clicked2 = false;
 
+createButton.addEventListener("click", function () {
+  unselectButtons(0);
+  createButton.className = "hidden";
+});
+
 gridButton.addEventListener("click", function () {
   addSketchpadStyle();
-  unselectButtons(0);
   gridButton.className = "selected";
   if (clicked1 == false) {
     removeGrid();
